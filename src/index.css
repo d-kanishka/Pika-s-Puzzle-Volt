@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 20% 8%;
+    --foreground: 0 0% 100%;
+    --card: 240 15% 12%;
+    --card-foreground: 0 0% 100%;
+    --popover: 240 15% 12%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 280 70% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 200 80% 60%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 240 10% 20%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 330 80% 65%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 10% 25%;
+    --input: 240 10% 25%;
+    --ring: 280 70% 60%;
+    --radius: 1rem;
+    
+    /* Dragon theme custom colors */
+    --dragon-blue: 200 80% 60%;
+    --dragon-pink: 330 80% 65%;
+    --dragon-purple: 280 70% 60%;
+    --dragon-orange: 25 95% 55%;
+    --dragon-gold: 45 100% 60%;
+    --dragon-dark: 240 20% 12%;
+    --dragon-button: 240 15% 22%;
+    --dragon-button-hover: 240 15% 28%;
+    
+    --sidebar-background: 240 15% 10%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 280 70% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 10% 20%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 240 10% 25%;
+    --sidebar-ring: 280 70% 60%;
+  }
+
+  .dark {
+    --background: 240 20% 8%;
+    --foreground: 0 0% 100%;
+    --card: 240 15% 12%;
+    --card-foreground: 0 0% 100%;
+    --popover: 240 15% 12%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 280 70% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 200 80% 60%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 240 10% 20%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 330 80% 65%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 10% 25%;
+    --input: 240 10% 25%;
+    --ring: 280 70% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-dragon;
+  }
+}
+
+@layer utilities {
+  .font-dragon {
+    font-family: 'Fredoka', sans-serif;
+  }
+  
+  .bg-dragon-gradient {
+    background: linear-gradient(135deg, hsl(var(--dragon-blue)), hsl(var(--dragon-pink)));
+  }
+  
+  .bg-celebration-gradient {
+    background: linear-gradient(135deg, hsl(var(--dragon-gold)), hsl(var(--dragon-orange)));
+  }
+  
+  .text-dragon-gradient {
+    background: linear-gradient(135deg, hsl(var(--dragon-blue)), hsl(var(--dragon-pink)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@keyframes bounce-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+@keyframes dance {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-10px) rotate(-5deg); }
+  75% { transform: translateY(-10px) rotate(5deg); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px hsl(var(--dragon-pink) / 0.5); }
+  50% { box-shadow: 0 0 40px hsl(var(--dragon-blue) / 0.8); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+@keyframes scale-in {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-bounce-gentle {
+  animation: bounce-gentle 2s ease-in-out infinite;
+}
+
+.animate-wiggle {
+  animation: wiggle 0.5s ease-in-out infinite;
+}
+
+.animate-dance {
+  animation: dance 0.6s ease-in-out infinite;
+}
+
+.animate-sparkle {
+  animation: sparkle 1.5s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-shake {
+  animation: shake 0.3s ease-in-out;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.4s ease-out forwards;
+}
