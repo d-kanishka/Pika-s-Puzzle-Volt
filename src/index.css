@@ -6,67 +6,71 @@
 
 @layer base {
   :root {
-    --background: 240 20% 8%;
-    --foreground: 0 0% 100%;
-    --card: 240 15% 12%;
-    --card-foreground: 0 0% 100%;
-    --popover: 240 15% 12%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 280 70% 60%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 200 80% 60%;
+    --background: 45 40% 92%;
+    --foreground: 30 30% 15%;
+    --card: 45 50% 96%;
+    --card-foreground: 30 30% 15%;
+    --popover: 45 50% 96%;
+    --popover-foreground: 30 30% 15%;
+    --primary: 48 95% 50%;
+    --primary-foreground: 30 30% 15%;
+    --secondary: 330 70% 55%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 240 10% 20%;
-    --muted-foreground: 240 5% 65%;
-    --accent: 330 80% 65%;
+    --muted: 45 30% 85%;
+    --muted-foreground: 30 15% 45%;
+    --accent: 25 90% 55%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 85% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 240 10% 25%;
-    --input: 240 10% 25%;
-    --ring: 280 70% 60%;
+    --border: 45 25% 80%;
+    --input: 45 25% 80%;
+    --ring: 48 95% 50%;
     --radius: 1rem;
     
-    /* Dragon theme custom colors */
-    --dragon-blue: 200 80% 60%;
-    --dragon-pink: 330 80% 65%;
-    --dragon-purple: 280 70% 60%;
-    --dragon-orange: 25 95% 55%;
-    --dragon-gold: 45 100% 60%;
-    --dragon-dark: 240 20% 12%;
-    --dragon-button: 240 15% 22%;
-    --dragon-button-hover: 240 15% 28%;
+    /* Pikachu theme custom colors */
+    --pika-yellow: 48 95% 50%;
+    --pika-brown: 30 50% 35%;
+    --pika-cream: 45 50% 92%;
+    --pika-red: 0 75% 55%;
+    --pika-dark: 30 30% 20%;
+    --pika-button: 30 25% 30%;
+    --pika-button-hover: 30 25% 40%;
+    --pika-teal: 175 55% 45%;
+    --pika-pink: 330 70% 65%;
+    --pika-orange: 25 90% 55%;
+    --pika-green: 145 50% 45%;
+    --pika-blue: 200 65% 55%;
     
-    --sidebar-background: 240 15% 10%;
-    --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 280 70% 60%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 10% 20%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 240 10% 25%;
-    --sidebar-ring: 280 70% 60%;
+    --sidebar-background: 45 40% 90%;
+    --sidebar-foreground: 30 30% 15%;
+    --sidebar-primary: 48 95% 50%;
+    --sidebar-primary-foreground: 30 30% 15%;
+    --sidebar-accent: 45 30% 85%;
+    --sidebar-accent-foreground: 30 30% 15%;
+    --sidebar-border: 45 25% 80%;
+    --sidebar-ring: 48 95% 50%;
   }
 
   .dark {
-    --background: 240 20% 8%;
-    --foreground: 0 0% 100%;
-    --card: 240 15% 12%;
-    --card-foreground: 0 0% 100%;
-    --popover: 240 15% 12%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 280 70% 60%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 200 80% 60%;
+    --background: 30 20% 12%;
+    --foreground: 45 40% 95%;
+    --card: 30 20% 16%;
+    --card-foreground: 45 40% 95%;
+    --popover: 30 20% 16%;
+    --popover-foreground: 45 40% 95%;
+    --primary: 48 95% 50%;
+    --primary-foreground: 30 30% 15%;
+    --secondary: 330 70% 55%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 240 10% 20%;
-    --muted-foreground: 240 5% 65%;
-    --accent: 330 80% 65%;
+    --muted: 30 15% 25%;
+    --muted-foreground: 45 20% 60%;
+    --accent: 25 90% 55%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 85% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 240 10% 25%;
-    --input: 240 10% 25%;
-    --ring: 280 70% 60%;
+    --border: 30 15% 30%;
+    --input: 30 15% 30%;
+    --ring: 48 95% 50%;
   }
 }
 
@@ -75,25 +79,17 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-dragon;
+    @apply bg-background text-foreground font-pika;
   }
 }
 
 @layer utilities {
-  .font-dragon {
+  .font-pika {
     font-family: 'Fredoka', sans-serif;
   }
   
-  .bg-dragon-gradient {
-    background: linear-gradient(135deg, hsl(var(--dragon-blue)), hsl(var(--dragon-pink)));
-  }
-  
-  .bg-celebration-gradient {
-    background: linear-gradient(135deg, hsl(var(--dragon-gold)), hsl(var(--dragon-orange)));
-  }
-  
-  .text-dragon-gradient {
-    background: linear-gradient(135deg, hsl(var(--dragon-blue)), hsl(var(--dragon-pink)));
+  .text-pika-gradient {
+    background: linear-gradient(135deg, hsl(var(--pika-yellow)), hsl(var(--pika-orange)));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -127,8 +123,8 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px hsl(var(--dragon-pink) / 0.5); }
-  50% { box-shadow: 0 0 40px hsl(var(--dragon-blue) / 0.8); }
+  0%, 100% { box-shadow: 0 0 20px hsl(var(--pika-yellow) / 0.5); }
+  50% { box-shadow: 0 0 40px hsl(var(--pika-yellow) / 0.8); }
 }
 
 @keyframes shake {
@@ -172,4 +168,12 @@
 
 .animate-scale-in {
   animation: scale-in 0.4s ease-out forwards;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.3);
+  border-radius: 9999px;
 }

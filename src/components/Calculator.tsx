@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { DragonMascot } from './DragonMascot';
+import { PikachuMascot } from './PikachuMascot';
 import { useSound } from '@/hooks/useSound';
 
 interface CalculatorProps {
@@ -15,10 +15,9 @@ export const Calculator: React.FC<CalculatorProps> = ({ onOpenGame }) => {
     try {
       const exp = expression.replace(/×/g, '*').replace(/÷/g, '/');
       
-      // Handle percentage
+      // handle percentage
       const withPercent = exp.replace(/(\d+\.?\d*)%/g, '($1/100)');
       
-      // Use Function constructor for safe evaluation
       const sanitized = withPercent.replace(/[^0-9+\-*/.()]/g, '');
       if (!sanitized) return '0';
       
@@ -28,7 +27,6 @@ export const Calculator: React.FC<CalculatorProps> = ({ onOpenGame }) => {
         return 'Error';
       }
       
-      // Format the result
       const formatted = parseFloat(evalResult.toFixed(10));
       return formatted.toString();
     } catch (e) {
@@ -39,7 +37,6 @@ export const Calculator: React.FC<CalculatorProps> = ({ onOpenGame }) => {
   const toggleSign = (exp: string): string => {
     if (!exp) return exp;
     
-    // Find the last number in the expression
     const regex = /(-?\d+\.?\d*)$/;
     const match = exp.match(regex);
     
@@ -70,12 +67,12 @@ export const Calculator: React.FC<CalculatorProps> = ({ onOpenGame }) => {
     } else if (value === '%') {
       setInput(prev => prev + '%');
     } else {
-      // Prevent multiple operators in a row (except minus for negative numbers)
+      // prevent multiple operators in a row 
       const operators = ['+', '-', '×', '÷'];
       const lastChar = input.slice(-1);
       
       if (operators.includes(value) && operators.includes(lastChar)) {
-        // Replace last operator with new one
+      
         setInput(prev => prev.slice(0, -1) + value);
       } else {
         setInput(prev => prev + value);
@@ -111,42 +108,38 @@ export const Calculator: React.FC<CalculatorProps> = ({ onOpenGame }) => {
     
     switch (type) {
       case 'function':
-        return `${base} bg-muted/60 text-foreground hover:bg-muted/80 border border-border/30`;
+        return `${base} bg-pika-brown text-card hover:brightness-110`;
       case 'operator':
-        return `${base} bg-dragon-orange text-foreground hover:brightness-110 shadow-dragon-orange/30`;
+        return `${base} bg-pika-yellow text-pika-dark hover:brightness-110`;
       case 'number':
       default:
-        return `${base} bg-dragon-button text-foreground hover:bg-dragon-button-hover border border-border/20`;
+        return `${base} bg-card text-foreground hover:bg-muted border border-border`;
     }
   };
 
   return (
     <div className="relative w-full max-w-sm mx-auto">
-      {/* Dragon mascot button */}
+      {/* Pikachu mascot button */}
       <div className="absolute -top-2 -right-2 z-10">
-        <DragonMascot
+        <PikachuMascot
           size="sm"
           mood="happy"
           animate={true}
           onClick={onOpenGame}
         />
-        <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 bg-dragon-pink/90 px-2 py-0.5 rounded-full text-[10px] font-medium text-foreground whitespace-nowrap shadow-lg">
+        <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 bg-pika-yellow px-2 py-0.5 rounded-full text-[10px] font-medium text-pika-dark whitespace-nowrap shadow-lg">
           Play Game!
         </div>
       </div>
 
       {/* Calculator body */}
-      <div className="bg-card rounded-3xl p-5 shadow-2xl border border-border/30 backdrop-blur-sm">
-        {/* Decorative elements */}
-        <div className="absolute top-4 left-4 w-2 h-2 rounded-full bg-dragon-blue/40 animate-sparkle" />
-        <div className="absolute top-8 left-8 w-1.5 h-1.5 rounded-full bg-dragon-pink/40 animate-sparkle" style={{ animationDelay: '0.5s' }} />
-        
+      <div className="bg-pika-dark rounded-3xl p-5 shadow-2xl border border-pika-brown/30">
         {/* Display */}
-        <div className="bg-background/50 rounded-2xl p-4 mb-5 min-h-[120px] flex flex-col justify-end items-end border border-border/20">
+        <div className="bg-pika-cream rounded-2xl p-4 mb-5 min-h-[120px] flex flex-col justify-end items-end border border-border">
           <div className="text-muted-foreground text-xl font-medium overflow-x-auto max-w-full scrollbar-hide">
             {input || '0'}
           </div>
-          <div className="text-foreground text-4xl font-bold mt-2 overflow-x-auto max-w-full scrollbar-hide">
+          <div className="text-pika-dark text-4xl font-bold mt-2 overflow-x-auto max-w-full scrollbar-hide">
             {result}
           </div>
         </div>

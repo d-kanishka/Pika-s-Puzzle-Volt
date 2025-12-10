@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        dragon: ['Fredoka', 'sans-serif'],
+        pika: ['Fredoka', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -50,15 +50,19 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        dragon: {
-          blue: "hsl(var(--dragon-blue))",
-          pink: "hsl(var(--dragon-pink))",
-          purple: "hsl(var(--dragon-purple))",
-          orange: "hsl(var(--dragon-orange))",
-          gold: "hsl(var(--dragon-gold))",
-          dark: "hsl(var(--dragon-dark))",
-          button: "hsl(var(--dragon-button))",
-          "button-hover": "hsl(var(--dragon-button-hover))",
+        pika: {
+          yellow: "hsl(var(--pika-yellow))",
+          brown: "hsl(var(--pika-brown))",
+          cream: "hsl(var(--pika-cream))",
+          red: "hsl(var(--pika-red))",
+          dark: "hsl(var(--pika-dark))",
+          button: "hsl(var(--pika-button))",
+          "button-hover": "hsl(var(--pika-button-hover))",
+          teal: "hsl(var(--pika-teal))",
+          pink: "hsl(var(--pika-pink))",
+          orange: "hsl(var(--pika-orange))",
+          green: "hsl(var(--pika-green))",
+          blue: "hsl(var(--pika-blue))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
