@@ -94,6 +94,15 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @keyframes bounce-gentle {
@@ -138,6 +147,47 @@
   100% { transform: scale(1); opacity: 1; }
 }
 
+@keyframes pokeball-open-top {
+  0% { transform: translateY(0) rotate(0deg); }
+  30% { transform: translateY(0) rotate(-5deg); }
+  100% { transform: translateY(-30px) rotate(-15deg); }
+}
+
+@keyframes pokeball-open-bottom {
+  0% { transform: translateY(0) rotate(0deg); }
+  30% { transform: translateY(0) rotate(5deg); }
+  100% { transform: translateY(30px) rotate(15deg); }
+}
+
+@keyframes pokeball-button {
+  0% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.3); }
+  100% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+}
+
+@keyframes badge-emerge {
+  0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+  50% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+@keyframes thunderbolt-1 {
+  0%, 100% { opacity: 0; transform: scale(0.8) rotate(-10deg); }
+  20%, 80% { opacity: 1; transform: scale(1.2) rotate(10deg); }
+  50% { opacity: 0.5; transform: scale(1) rotate(-5deg); }
+}
+
+@keyframes thunderbolt-2 {
+  0%, 100% { opacity: 0; transform: scale(0.8) rotate(10deg); }
+  30%, 70% { opacity: 1; transform: scale(1.1) rotate(-10deg); }
+  50% { opacity: 0.6; transform: scale(1) rotate(5deg); }
+}
+
+@keyframes thunderbolt-3 {
+  0%, 100% { opacity: 0; transform: scale(0.9) rotate(0deg); }
+  40%, 60% { opacity: 1; transform: scale(1.15) rotate(-15deg); }
+}
+
 .animate-bounce-gentle {
   animation: bounce-gentle 2s ease-in-out infinite;
 }
@@ -170,10 +220,36 @@
   animation: scale-in 0.4s ease-out forwards;
 }
 
-.scrollbar-thin::-webkit-scrollbar {
-  width: 4px;
+.animate-pokeball-open-top {
+  animation: pokeball-open-top 0.8s ease-out forwards;
+  animation-delay: 0.2s;
 }
-.scrollbar-thin::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,0.3);
-  border-radius: 9999px;
+
+.animate-pokeball-open-bottom {
+  animation: pokeball-open-bottom 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+.animate-pokeball-button {
+  animation: pokeball-button 0.6s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+.animate-badge-emerge {
+  animation: badge-emerge 1.2s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+.animate-thunderbolt-1 {
+  animation: thunderbolt-1 1.5s ease-in-out infinite;
+}
+
+.animate-thunderbolt-2 {
+  animation: thunderbolt-2 1.5s ease-in-out infinite;
+  animation-delay: 0.2s;
+}
+
+.animate-thunderbolt-3 {
+  animation: thunderbolt-3 1.5s ease-in-out infinite;
+  animation-delay: 0.4s;
 }

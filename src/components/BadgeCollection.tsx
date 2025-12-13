@@ -26,10 +26,8 @@ export const BadgeCollection: React.FC<BadgeCollectionProps> = ({
             <Award className="text-pika-dark" size={24} />
             <h2 className="text-xl font-bold text-pika-dark">My Badges</h2>
           </div>
-          <button
-            onClick={onClose}
-            className="w-8 h-8 flex items-cbenter justify-center rounded-full bg-pika-dark/20 hover:bg-pika-dark/30 text-pika-dark transition-colors"
-          >
+          <button onClick={onClose}
+            className="w-8 h-8 flex items-cbenter justify-center rounded-full bg-pika-dark/20 hover:bg-pika-dark/30 text-pika-dark transition-colors">
             <X size={18} />
           </button>
         </div>

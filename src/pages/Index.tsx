@@ -16,9 +16,6 @@ const Index = () => {
 
       {/* Main content */}
       <div className="relative z-10">
-        <h1 className="text-center text-2xl font-bold text-pika-gradient mb-6">
-          Pikachu Calculator
-        </h1>
         <Calculator onOpenGame={() => setIsGameOpen(true)} />
       </div>
 

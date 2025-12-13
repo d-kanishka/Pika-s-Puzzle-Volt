@@ -126,7 +126,7 @@ export const MathGame: React.FC<MathGameProps> = ({ isOpen, onClose }) => {
 
   const nextQuestion = useCallback(() => {
     if (questionCount + 1 >= QUESTIONS_PER_LEVEL) {
-      // Level complete!
+      // Level complete
       const stars = correctCount >= 5 ? 3 : correctCount >= 3 ? 2 : correctCount >= 1 ? 1 : 0;
       
       const newProgress = { ...progress };
@@ -222,6 +222,7 @@ export const MathGame: React.FC<MathGameProps> = ({ isOpen, onClose }) => {
     return () => clearInterval(timer);
   }, [gameState, playGameOver, playTick, playUrgentTick]);
 
+
   // Reset game when modal closes
   useEffect(() => {
     if (!isOpen) {
@@ -233,7 +234,12 @@ export const MathGame: React.FC<MathGameProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   const timerPercentage = (timeLeft / getTimeLimit(playingLevel)) * 100;
-  const isUrgent = timeLeft <= 10;
+  const timerClass =
+  timeLeft <= 10
+    ? 'text-destructive animate-pulse'
+    : 'text-foreground';
+
+
 
   return (
     <>
@@ -277,13 +283,13 @@ export const MathGame: React.FC<MathGameProps> = ({ isOpen, onClose }) => {
                 
                 {/* Stats */}
                 <div className="mt-4 flex items-center justify-center gap-4">
-                  <div className="flex items-center gap-1 text-pika-yellow">
+                  <div className="flex items-center gap-1 text-destructive">
                     <Trophy size={18} />
                     <span className="font-semibold">{progress.totalScore}</span>
                   </div>
                   <button
                     onClick={() => setShowBadgeCollection(true)}
-                    className="flex items-center gap-1 text-pika-orange hover:text-pika-yellow transition-colors"
+                    className="flex items-center gap-1 text-destructive"
                   >
                     <Award size={18} />
                     <span className="font-semibold">{progress.earnedBadges.length}/{TOTAL_LEVELS}</span>
@@ -292,9 +298,9 @@ export const MathGame: React.FC<MathGameProps> = ({ isOpen, onClose }) => {
                 
                 {/* Earned badges preview */}
                 {progress.earnedBadges.length > 0 && (
-                  <div className="mt-4 flex justify-center gap-1 flex-wrap">
-                    {progress.earnedBadges.slice(-5).map((badgeId) => (
-                      <PokemonBadge key={badgeId} pokemonId={badgeId} size="sm" />
+                  <div className="mt-4 scrollbar-hide flex gap-3 overflow-x-auto overflow-y-hidden px-2 scroll-smooth snap-x">
+                    {progress.earnedBadges.map((badgeId) => (
+                      <PokemonBadge key={badgeId} pokemonId={badgeId} size="md" />
                     ))}
                   </div>
                 )}
@@ -352,18 +358,17 @@ export const MathGame: React.FC<MathGameProps> = ({ isOpen, onClose }) => {
                   <div className="text-sm text-muted-foreground">
                     {questionCount + 1}/{QUESTIONS_PER_LEVEL}
                   </div>
-                  <div className={`font-mono font-bold text-lg ${isUrgent ? 'text-destructive animate-pulse' : 'text-foreground'}`}>
+                  <div key={timeLeft} className={`font-mono font-bold text-lg transition-colors duration-300 ${timerClass}`}>
                     {timeLeft}s
-                  </div>
+                    </div>
+
                 </div>
                 
                 {/* Timer bar */}
                 <div className="h-2 bg-muted rounded-full overflow-hidden mb-6">
-                  <div
-                    className={`h-full transition-all duration-1000 ${isUrgent ? 'bg-destructive' : 'bg-pika-yellow'}`}
-                    style={{ width: `${timerPercentage}%` }}
-                  />
-                </div>
+                  <div className={`h-full transition-all duration-1000 ${timeLeft <= 10 ? 'bg-destructive' : 'bg-pika-yellow'}`}
+                  style={{ width: `${timerPercentage}%` }}/>
+                  </div>
 
                 {/* Question */}
                 <div className="text-center mb-6">
@@ -376,19 +381,20 @@ export const MathGame: React.FC<MathGameProps> = ({ isOpen, onClose }) => {
                   </div>
                 </div>
 
-            {/*answer box - snorlx*/}
+                {/* Answer display */}
+                {/* Answer input display with Snorlax on top */}
                 <div className="relative mb-6">
                   <img 
                     src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/143.png"
                     alt=""
-                    className="absolute -top-10 right-0 w-26 h-26 z-20"
+                    className="absolute -top-15 right-0 bottom-10 w-22 h-22 z-20"
                     style={{ imageRendering: 'pixelated' }}
                   />
                   <div className="bg-pika-cream rounded-2xl p-4 min-h-[60px] flex items-center justify-center border border-border relative">
                     <img 
                       src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/163.png"
                       alt=""
-                      className="absolute left-4 w-20 h-20"
+                      className="absolute left-10 w-15 h-15"
                       style={{ imageRendering: 'pixelated' }}
                     />
                     <span className={`text-3xl font-bold ${gameState === 'correct' ? 'text-pika-green' : 'text-pika-dark'}`}>
@@ -400,7 +406,7 @@ export const MathGame: React.FC<MathGameProps> = ({ isOpen, onClose }) => {
                   </div>
                 </div>
 
-                {/* Number pad with pokemon decorations */}
+                {/* Number pad with Pokemon decorations */}
                 <div className="grid grid-cols-3 gap-3">
                   {[1, 2, 3, 4, 5, 6, 7, 8, 9, 'DEL', 0, '✓'].map((btn) => (
                     <button
@@ -425,12 +431,12 @@ export const MathGame: React.FC<MathGameProps> = ({ isOpen, onClose }) => {
                         <img 
                           src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png"
                           alt=""
-                          className="absolute left-0 bottom-3 w-25 h-30"
+                          className="absolute left-1 bottom-3 w-25 h-30"
                           style={{ imageRendering: 'pixelated' }}
                         />
                       )}
-                      {/* Bulbasaur on button 3 */}
-                      {btn === 6 && (
+                      {/* Bulbasaur (green) on button 3 */}
+                      {btn === 3 && (
                         <img 
                           src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
                           alt=""
@@ -438,7 +444,7 @@ export const MathGame: React.FC<MathGameProps> = ({ isOpen, onClose }) => {
                           style={{ imageRendering: 'pixelated' }}
                         />
                       )}
-                      {/* Piplup on button 0 */}
+                      {/* Piplup (blue) on button 0 */}
                       {btn === 0 && (
                         <img 
                           src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/393.png"

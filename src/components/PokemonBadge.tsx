@@ -8,7 +8,7 @@ interface PokemonBadgeProps {
   onClick?: () => void;
 }
 
-// pokemon badge
+// Pokemon badge
 const pokemonData = [
   { name: 'Pikachu', color: '#FFD93D', accent: '#8B4513', quote: 'Electric and bright!' },
   { name: 'Togepi', color: '#FFF5DC', accent: '#E07B53', quote: 'Full of happiness!' },
@@ -50,10 +50,10 @@ export const PokemonBadge: React.FC<PokemonBadgeProps> = ({
   const imageSizes = {
     sm: 64,
     md: 96,
-    lg: 928,
+    lg: 128,
   };
 
-  //  pokeAPI
+  // PokeAPI
   const getPokemonSprite = (name: string): string => {
     const pokemonIds: Record<string, number> = {
       'Pikachu': 25, 'Togepi': 175, 'Marill': 183, 'Bulbasaur': 1,
@@ -72,7 +72,7 @@ export const PokemonBadge: React.FC<PokemonBadgeProps> = ({
       onClick={onClick}
     >
       <div 
-        className={`${sizeClasses[size]} rounded-2xl p-2 flex flex-col items-center justify-center shadow-lg`}
+        className={`${sizeClasses[size]} rounded-2xl p-2 flex flex-col items-center justify-center shadow-lg flex-shrink-0`}
         style={{ backgroundColor: pokemon.color }}
       >
         {/* Pokemon sprite */}
