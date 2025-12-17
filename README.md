@@ -2,7 +2,6 @@
 
 PikaMath is a **child-friendly educational web application** that combines a fully functional calculator with a **quick-reaction math puzzle game**. Designed especially for kids aged **6–12**, the app uses a playful **Pokémon-inspired theme**, smooth animations and sound effects to make learning math fun and engaging.
 
----
 
 ## Project Highlights
 
@@ -12,7 +11,6 @@ PikaMath is a **child-friendly educational web application** that combines a ful
 - Pokémon badge rewards with animated Pokéball reveals
 - Kid-friendly UI with Pikachu mascot, sound effects, and smooth animations
 
----
 
 ## Features
 
@@ -35,7 +33,7 @@ PikaMath is a **child-friendly educational web application** that combines a ful
 
 ### Pokémon Badge Collection
 - Earn **1 Pokémon badge for every 5 correct answers**
-- Pokéball opening animations with thunderbolt effects ⚡
+- Pokéball opening animations with thunderbolt effects
 - 20 unique Pokémon badges
 - Badges displayed using **real Pokémon sprites from PokeAPI**
 - Inspirational quotes unlocked with each badge
@@ -46,7 +44,6 @@ PikaMath is a **child-friendly educational web application** that combines a ful
 - Countdown timer ticks
 - Celebration sounds for level completion and badge unlocks
 
----
 
 ## Design System
 
@@ -54,7 +51,6 @@ PikaMath is a **child-friendly educational web application** that combines a ful
 - Kid-friendly typography
 - Smooth CSS & motion-based animations
 
----
 
 ## Tech Stack
 
@@ -70,7 +66,6 @@ PikaMath is a **child-friendly educational web application** that combines a ful
 | **Lucide React** | Icon Library |
 | **Sonner** | Toast Notifications |
 
----
 
 ## Prerequisites
 
@@ -78,7 +73,7 @@ Make sure you have the following installed:
 
 - **Node.js** 
 - **npm** 
----
+
 
 ## Installation & Setup
 
@@ -103,3 +98,22 @@ PikaMath helps children:
 - Improve focus through time-based challenges
 - Build confidence with reward-based progression
 - Learn through play rather than memorization
+
+## Screenshots
+
+![til](src/images/MainCalculator.png)
+ 
+
+![til](src/images/BadgePreview.png)
+ 
+![til](src/images/SelectLvl.png)
+ 
+![til](src/images/PlayGame.png)
+ 
+![til](src/images/TimeUp.png)
+ 
+
+![til](src/images/LvlComplete.png)
+ 
+ 
+![til](src/images/BadgeEarned.png)
