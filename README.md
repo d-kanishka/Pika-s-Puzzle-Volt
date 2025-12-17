@@ -2,6 +2,10 @@
 
 PikaMath is a **child-friendly educational web application** that combines a fully functional calculator with a **quick-reaction math puzzle game**. Designed especially for kids aged **6–12**, the app uses a playful **Pokémon-inspired theme**, smooth animations and sound effects to make learning math fun and engaging.
 
+## Live Demo
+```bash
+https://pika-s-puzzle-volt.vercel.app
+```
 
 ## Project Highlights
 
