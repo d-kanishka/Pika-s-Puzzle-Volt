@@ -101,19 +101,16 @@ PikaMath helps children:
 
 ## Screenshots
 
-![til](src/images/MainCalculator.png)
- 
+<img src="src/images/MainCalculator.png" width="400"/>
 
-![til](src/images/BadgePreview.png)
- 
-![til](src/images/SelectLvl.png)
- 
-![til](src/images/PlayGame.png)
- 
-![til](src/images/TimeUp.png)
- 
+<img src="src/images/BadgePreview.png" width="400"/>
 
-![til](src/images/LvlComplete.png)
- 
- 
-![til](src/images/BadgeEarned.png)
+ <img src="src/images/SelectLvl.png" width="400"/>
+
+<img src="src/images/PlayGame.png" width="400"/>
+
+<img src="src/images/TimeUp.png" width="400"/>
+
+<img src="src/images/LvlComplete.png" width="400"/>
+
+<img src="src/images/BadgeEarned.png" width="400"/>
